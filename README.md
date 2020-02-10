@@ -5,3 +5,4 @@
 [해당 과정의 링크입니다.](https://www.fastcampus.co.kr/degree_online_pyweb/)
 
 - **2020.02.09.SUN** :  Start this Course.
+- **2020.02.11.TUE** :  Clear week 09.

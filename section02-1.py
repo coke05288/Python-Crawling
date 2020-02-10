@@ -1,41 +1,33 @@
-# Section02-2
+# Section02-1
 # 파이썬 크롤링 기초
-# urlopen 함수 기초 사용법
+# urllib 사용법 및 기본 스크랩핑
 
 import urllib.request as req
-from urllib.error import URLError, HTTPError
 
-# 다운로드 경로 및 파일명
-path_list = ["D:/crawl-test/test2.jpg", "D:/crawl-test/index2.html"]
+# 파일 URL
+img_url = 'https://search.pstatic.net/common?type=a&size=120x150&quality=95&direct=true&src=http%3A%2F%2Fsstatic.naver.net%2Fpeople%2Fportrait%2F201906%2F20190627094434434.jpg'
+html_url = 'http://google.com'
 
-# 다운로드 리소스 url
-target_url = ["https://search.pstatic.net/common?type=a&size=120x150&quality=95&direct=true&src=http%3A%2F%2Fsstatic.naver.net%2Fpeople%2Fportrait%2F201906%2F20190627094559503.jpg",
-"http://google.com"]
+# 다운받을 경로
+save_path1 = "d:/test1.jpg"
+save_path2 = "d:/index.html"
 
-for i, url in enumerate(target_url):
-    # 예외처리
-    try:
-        # 웹 수신 정보 읽기
-        response = req.urlopen(url)
-        # 수신 내용
-        contents = response.read()
-        print("-------------------------------")
+# 예외처리
 
-        # 상태 정보 중간 출력
-        print("Header Info-{} : {}".format(i, response.info()))
-        print("HTTP Status Code : {}".format(response.getcode()))
-        print("-------------------------------")
+try:
+    file1, header1 = req.urlretrieve(img_url, save_path1)
+    file2, header2 = req.urlretrieve(html_url, save_path2)
+except Exception as e:
+    print("Download Failed")
+    print(e)
+else:
+    # Header 정보 출력
+    print(header1)
+    print(header2)
 
-        with open(path_list[i], 'wb') as c:
-            c.write(contents)
+    # 다운로드 파일 정보
+    print("Filename {}".format(file1))
+    print("Filename {}".format(file2))
 
-    except HTTPError as e:
-        print("Download Failed.")
-        print("HTTPError Code : ", e.code)
-    except URLError as e:
-        print("Download Failed.")
-        print("URL Error Reason : ", e.reason)
     # 성공
-    else:
-        print()
-        print("Download Succeed.")
+    print("Download Succeed")

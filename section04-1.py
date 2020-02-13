@@ -32,7 +32,7 @@ r2 = s.get("https://httpbin.org/cookies/set", cookies={"name":"Kim2"})
 print(r2.text)
 
 # User-A
-url = 'http://httpbin.org'
+url = 'https://httpbin.org'
 headers = {"user-agent" : 'nice-man_1.0.0_win10_ram16_home_chrome'}
 
 # Header 정보 전송
@@ -45,6 +45,5 @@ s.close()
 # width문 사용(권장) -> 파일, DB, HTTP
 with requests.Session() as s:
     r = s.get("http://daum.net")
-    print(r.text)
+    # print(r.text)
     print(r.ok)
-    

@@ -18,7 +18,7 @@ req.install_opener(opener)
 # 네이버 이미지 기본 URL(크롬 개발자 도구)
 base = 'https://search.naver.com/search.naver?where=image&sm=tab_jum&query='
 # 검색어
-quote = rep.quote_plus('태연')
+quote = rep.quote_plus('잔나비')
 # URL 완성
 url = base + quote
 
@@ -29,7 +29,7 @@ url = base + quote
 res = req.urlopen(url)
 
 # 이미지 저장 경로
-savePath = "D:/crawl-test"
+savePath = "D:/crawl-test/"
 
 # 폴더 생성 예외 처리(문제 발생 시 프로그램 종료)
 try:
@@ -50,6 +50,31 @@ else:
 
 # bs4 초기화
 soup = BeautifulSoup(res, "html.parser")
-print(soup.prettify())
+# print(soup.prettify())
 
-# 
+# select 사용
+img_list = soup.select('div.img_area > a.thumb._thumb > img')
+
+# # find_all 사용
+# img_list2 = soup.find_all('a',class_="thumb _thumb")
+
+# for v in img_list2:
+#     img_t = v.find('img')
+#     print(img_t.attrs['data-source'])
+
+# print(img_list)
+
+for i, img in enumerate(img_list, 1):
+    # 속성 확인
+    # print()
+    # print()
+    # print(img[data-source], i)
+
+    # 저장 파일명 및 경로
+    fullFileName = os.path.join(savePath, savePath+str(i)+'.png')
+
+    # print(fullFileName)
+    # 다운로드 요청(URL, 다운로드 경로)
+    req.urlretrieve(img['data-source'],fullFileName)
+
+print("Download Succeed!!")

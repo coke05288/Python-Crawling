@@ -20,7 +20,7 @@ print('read : {}'.format(mem.read(100).decode('utf-8')))
 print('parse : {}'.format(urlparse('http://www.encar.co.kr?id=test&pw=1234').query))
 
 # 기본 요청 2 (ipify)
-API = "https://api.ipify.org"
+API = "https://api.ipify.org/"
 
 # Get 방식 Parameter
 values={

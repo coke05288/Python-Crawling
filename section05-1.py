@@ -30,9 +30,9 @@ test_html = """
 soup = BeautifulSoup(test_html, 'html.parser')
 
 # 타입 확인
-print('soup', type(soup))
+# print('soup', type(soup))
 # 내용 확인
-print('prettify', soup.prettify())
+# print('prettify', soup.prettify())
 
 # h1 태그 접근
 h1 = soup.html.body.h1
@@ -71,16 +71,16 @@ print('p2 >>' , p2.string)
 soup2 = BeautifulSoup(test_html, 'html.parser')
 
 # a 태그 모두 선택
-link1 = soup2.find_all('a') # limit=2
+# link1 = soup2.find_all('a') # limit=2
 # print(type(link1))
-print('links', link1)
+# print('links', link1)
 
 # 태그 이외에 태그 속성값으로 읽어올 수 있음.
-link2 = soup.find_all("a", class_='sister') # id="link2", string="title", string=["Elsie"]
-print(link2)
+# link2 = soup.find_all("a", class_='sister') # id="link2", string="title", string=["Elsie"]
+# print(link2)
 
-for t in link2:
-    print(t)
+# for t in link2:
+#     print(t)
 
 # 처음 발견한 a 태그 선택
 # find와 find_all 의 차이

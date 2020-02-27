@@ -2,6 +2,11 @@
 # Selenium
 # Selenium 사용 실습(1) - 설치 및 기본 테스트
 
+# selenium 쓰는 이유.
+# 1) 후처리 되는 렌더링을 통해서 정보를 표시하는 서버 프로그래밍이 되어있는 홈페이지는 request, urlretrieve로 response 받을 수없음.
+# 2) 실질적인 브라우저로 접근함을 체크하는 보안 된 사이트에 접근할 때는 브라우저로 접근해야함. 
+# 3) 키를 입력과 같은 상호 작용이 필요할 때.
+
 # selenium 임포트
 from selenium import webdriver
 

@@ -37,3 +37,21 @@ print('URL : {}'.format(browser.current_url))
 
 # 현재 쿠키 출력
 print('Cookies : {}'.format(browser.get_cookies))
+
+# 검색창 input 선택
+element = browser.find_element_by_css_selector('div.inner_search > input.tf_keyword')
+
+# 검색어 입력
+element.send_keys('잔나비 최정훈')
+
+# 검색(Form Submit)
+element.submit()
+
+# 스크린 샷 저장 1
+browser.save_screenshot("D:/crawl-test/website_ch1.png")
+
+# 스크린 샷 저장 2
+# browser.get_screenshot_as_file("D:/crawl-test/website_ch2.png")
+
+# 브라우저 종료
+browser.quit()

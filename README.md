@@ -7,3 +7,5 @@
 - **2020.02.09.SUN** :  Start this Course.
 - **2020.02.11.TUE** :  Clear week 09.
 - **2020.02.14.FRI** :  Clear week 10.
+- **2020.02.21.FRI** :  Clear week 11.
+- **2020.02.28.FRI** :  Clear week 12.
